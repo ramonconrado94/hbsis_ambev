@@ -52,7 +52,7 @@
        77  WS-CRUDVEND                 PIC  X(008)         VALUE
                                                            'CRUDVEND'.
        77  WS-DISTRIBU                 PIC  X(008)         VALUE
-                                                           'DISTRIBU'.                                                    
+                                                           'DISTRIBU'.
        01  WS-LINK-CRUDCLIE.
            COPY 'BOOKCLIE.CPY'.
 
@@ -60,7 +60,7 @@
            COPY 'BOOKVEND.CPY'.
 
        01  WS-LINK-DISTRIBU.
-           COPY 'BOOKDSTR.CPY'.    
+           COPY 'BOOKDSTR.CPY'.
 
        SCREEN                          SECTION.
 
@@ -403,12 +403,13 @@
            05  LINE 02 COL 58          VALUE "*".
            05  LINE 03 COL 01          VALUE
            "----------------------------------------------------------".
-           05  LINE 06 COL 10          VALUE "1 - CLIENTE".
-           05  LINE 07 COL 10          VALUE "2 - VENDEDOR".
-           05  LINE 09 COL 10          VALUE
-           "DIGITE A OPCAO DESEJADA E TECLE ENTER: ".
-           05  LINE 09 COL 49          PIC X(001)
-                                       TO WS-OPCAO.
+           05  LINE 04 COL 02          VALUE
+                                          "ESCOLHA UMA OPCAO:".
+           05  LINE 04 COL 21          PIC X(001)
+                                          TO WS-OPCAO.
+           05  LINE 06 COL 02          VALUE "1 - CLIENTE".
+           05  LINE 07 COL 02          VALUE "2 - VENDEDOR".
+
 
        01  TELA-RELATORIOS-CLIENTE.
            05 BLANK SCREEN.
@@ -419,29 +420,31 @@
            05  LINE 02 COL 58          VALUE "*".
            05  LINE 03 COL 01          VALUE
            "----------------------------------------------------------".
-           05  LINE 06 COL 10          VALUE "TIPO DE ORDENACAO:".
-           05  LINE 07 COL 10          VALUE
+
+           05  LINE 04 COL 02          VALUE
+                                          "ESCOLHA UMA OPCAO:".
+           05  LINE 04 COL 21          PIC X(001)
+                                          TO WS-OPCAO.
+           05  LINE 06 COL 02          VALUE "TIPO DE ORDENACAO:".
+           05  LINE 07 COL 02          VALUE
            "1 - ACESCENDENTE 2 - DECRESCENTE:".
            05  LINE 07 COL 55           PIC X(001)
                                        TO WS-TIPO-ORDENACAO.
-           05  LINE 08 COL 10          VALUE "TIPO DE CLASSIFICACAO:".
-           05  LINE 09 COL 10          VALUE
+           05  LINE 08 COL 02          VALUE "TIPO DE CLASSIFICACAO:".
+           05  LINE 09 COL 02          VALUE
            "1 - CODIGO CLIENTE 2 - RAZAO SOCIAL:".
            05  LINE 09 COL 48          PIC X(001)
                                        TO WS-TIPO-CLASS.
-           05  LINE 10 COL 10          VALUE "CODIGO CLIENTE:".
+           05  LINE 10 COL 02          VALUE "CODIGO CLIENTE:".
            05  LINE 10 COL 27          PIC ZZZZZZ9
                                        TO WS-COD-CLIE-RELAT.
-           05  LINE 11 COL 10          VALUE "RAZAO SOCIAL:".
+           05  LINE 11 COL 02          VALUE "RAZAO SOCIAL:".
            05  LINE 11 COL 24          PIC X(040)
                                        TO WS-NOME-RAZAO-RELAT.
-           05  LINE 12 COL 10          VALUE "CODIGO VENDEDOR:".
+           05  LINE 12 COL 02          VALUE "CODIGO VENDEDOR:".
            05  LINE 12 COL 28          PIC ZZ9
                                        TO WS-COD-VEND-RELAT.
-           05  LINE 14 COL 10          VALUE
-           "DIGITE A OPCAO DESEJADA E TECLE ENTER: ".
-           05  LINE 14 COL 49          PIC X(001)
-                                       TO WS-OPCAO.
+
 
        01  TELA-RELATORIOS-VENDEDOR.
           05 BLANK SCREEN.
@@ -452,26 +455,46 @@
            05  LINE 02 COL 58          VALUE "*".
            05  LINE 03 COL 01          VALUE
            "----------------------------------------------------------".
-           05  LINE 06 COL 10          VALUE "TIPO DE ORDENACAO:".
-           05  LINE 07 COL 10          VALUE
+
+           05  LINE 04 COL 02          VALUE
+                                          "ESCOLHA UMA OPCAO:".
+           05  LINE 04 COL 21          PIC X(001)
+                                          TO WS-OPCAO.
+           05  LINE 06 COL 02          VALUE "TIPO DE ORDENACAO:".
+           05  LINE 07 COL 02          VALUE
            "1 - ACESCENDENTE 2 - DECRESCENTE:".
            05  LINE 07 COL 55           PIC X(001)
                                        TO WS-TIPO-ORDENACAO.
-           05  LINE 08 COL 10          VALUE "TIPO DE CLASSIFICACAO:".
-           05  LINE 09 COL 10          VALUE
+           05  LINE 08 COL 02          VALUE "TIPO DE CLASSIFICACAO:".
+           05  LINE 09 COL 02          VALUE
            "1 - CODIGO VENDEDOR 2 - NOME VENDEDOR:".
            05  LINE 09 COL 60          PIC X(001)
                                        TO WS-TIPO-CLASS.
-           05  LINE 10 COL 10          VALUE "CODIGO VENDEDOR:".
+           05  LINE 10 COL 02          VALUE "CODIGO VENDEDOR:".
            05  LINE 10 COL 28          PIC ZZ9
                                        TO WS-COD-CLIE-RELAT.
-           05  LINE 11 COL 10          VALUE "NOME VENDEDOR".
+           05  LINE 11 COL 02          VALUE "NOME VENDEDOR".
            05  LINE 11 COL 24          PIC X(040)
                                        TO WS-NOME-RAZAO-RELAT.
-           05  LINE 13 COL 10          VALUE
-           "DIGITE A OPCAO DESEJADA E TECLE ENTER: ".
-           05  LINE 13 COL 49          PIC X(001)
-                                       TO WS-OPCAO.
+
+       01  TELA-EXECUTAR.
+           05 BLANK SCREEN.
+           05 LINE 1 COL 1             VALUE
+           "----------------------------------------------------------".
+           05  LINE 02 COL 01          VALUE "*".
+           05  LINE 02 COL 20          VALUE "HBSIS - MENU EXECUTAR".
+           05  LINE 02 COL 58          VALUE "*".
+           05  LINE 03 COL 01          VALUE
+           "----------------------------------------------------------".
+           05  LINE 04 COL 02          VALUE
+                                          "ESCOLHA UMA OPCAO:".
+           05  LINE 04 COL 21          PIC X(001)
+                                          TO WS-OPCAO.
+           05  LINE 06 COL 02          VALUE
+           "1 - DESTRIBUICAO DE CLINTE".
+           05  LINE 07 COL 02          VALUE
+           "2 - VOLTAR".
+
 
        PROCEDURE                       DIVISION.
 
@@ -866,7 +889,7 @@
 
            IF WS-OPCAO                 EQUAL 1
              CALL WS-DISTRIBU          USING WS-LINK-DISTRIBU
-             DISPLAY BOOKEXEC-CONTROLE-MSG
+             DISPLAY BOOKDSTR-CTRL-MSG
                                        AT 2310
              STOP ' '
            ELSE IF WS-OPCAO            EQUAL 2
@@ -874,7 +897,7 @@
            ELSE
              DISPLAY "VALOR INVALIDO"  AT 2310
              STOP ' '
-             PERFORM 2300-EXECUTAR
+             PERFORM 2500-EXECUTAR
            END-IF
 
            .
