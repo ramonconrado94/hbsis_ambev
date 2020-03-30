@@ -1,6 +1,6 @@
        05  BOOKCLIE-CTRL.
-           10 BOOKCLIE-CTRL-COD    PIC 9(001)             VALUE ZEROS.
-           10 BOOKCLIE-CTRL-MSG    PIC X(040)             VALUE SPACES.
+           10 BOOKCLIE-CTRL-COD        PIC 9(001)          VALUE ZEROS.
+           10 BOOKCLIE-CTRL-MSG        PIC X(040)          VALUE SPACES.
        05  BOOKCLIE-REG.
            10 BOOKCLIE-REG-SERVICO     PIC X(001)          VALUE SPACES.
            10 BOOKCLIE-REG-COD-CLIENTE PIC 9(007)          VALUE ZEROS.
