@@ -289,7 +289,7 @@
            05  LINE 03 COL 01          VALUE
            "----------------------------------------------------------".
            05  LINE 06 COL 02          VALUE "CODIGO VENDEDOR:".
-           05  LINE 06 COL 26          PIC 999
+           05  LINE 06 COL 26          PIC ZZ9
                                        FROM WS-CODIGO
                                        OF WS-VENDEDOR.
            05  LINE 07 COL 02          VALUE "CPF...........:".
