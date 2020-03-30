@@ -10,7 +10,6 @@
 
        SPECIAL-NAMES.
            DECIMAL-POINT               IS COMMA.
-           CONSOLE                     IS CRT.
 
        DATA                            DIVISION.
 
@@ -69,7 +68,7 @@
            "---------------------------------------------------------".
            05  LINE 02 COL 01          VALUE "*".
            05  LINE 02 COL 20          VALUE "AMBEV - MENU PRINCIPAL".
-           05  LINE 02 COL 58          VALUE "*".
+           05  LINE 02 COL 57          VALUE "*".
            05  LINE 03 COL 01          VALUE
            "---------------------------------------------------------".
            05  LINE 05 COL 02          VALUE
@@ -216,7 +215,7 @@
                                        OF WS-CLIENTE AUTO.
 
            05  LINE 11 COL 02          VALUE
-              "CONFIRMA EXCLUIR DO CLIENTE?".
+              "CONFIRMA EXCLUIR CLIENTE?".
            05  LINE 15 COL 02          VALUE
               "1 - SIM  2 - NAO".
            05  LINE 15 COL 28          PIC X(001)
@@ -290,7 +289,7 @@
            05  LINE 03 COL 01          VALUE
            "----------------------------------------------------------".
            05  LINE 06 COL 02          VALUE "CODIGO VENDEDOR:".
-           05  LINE 06 COL 26          PIC ZZ9
+           05  LINE 06 COL 26          PIC 999
                                        FROM WS-CODIGO
                                        OF WS-VENDEDOR.
            05  LINE 07 COL 02          VALUE "CPF...........:".
@@ -385,7 +384,7 @@
                                        USING WS-LONG
                                        OF WS-VENDEDOR AUTO.
            05  LINE 14 COL 02          VALUE
-              "CONFIRMA EXCLUIR DO VENDEDOR?".
+              "CONFIRMA EXCLUIR VENDEDOR?".
            05  LINE 14 COL 31          PIC X(001)
                                        TO WS-OPCAO.
            05  LINE 15 COL 02          VALUE
@@ -489,7 +488,6 @@
            PERFORM 1100-CONSISTIR-DADOS-ENTRADA
            .
        1000-99-FIM.                    EXIT.
-
 
        1100-CONSISTIR-DADOS-ENTRADA    SECTION.
            INITIALIZE                  WS-DADOS-ENTRADA
@@ -598,7 +596,6 @@
             IF WS-OPCAO                 EQUAL 1
              SET WS-PESQUISAR           TO TRUE
              PERFORM 2250-ACESSAR-CRUDCLIE
-             DISPLAY 'BOOKCLIE-CTRL-COD' BOOKCLIE-CTRL-COD
              IF BOOKCLIE-CTRL-COD  ZEROS
                DISPLAY TELA-INCLUIR-CLIENTE
                ACCEPT  TELA-INCLUIR-CLIENTE
@@ -627,7 +624,7 @@
            ACCEPT  TELA-EXCLUIR-CLIENTE
 
            IF WS-OPCAO                 EQUAL 1
-             SET WS-EXCLUIR           TO TRUE
+             SET WS-EXCLUIR            TO TRUE
              PERFORM 2250-ACESSAR-CRUDCLIE
              DISPLAY BOOKCLIE-CTRL-MSG
                                        AT 2310
