@@ -21,6 +21,6 @@ Caso a maquina utilizada seja Mac OS, é necessário exectuar seguintes comandos
 
 Para rodar o programa, é necessario compilar os artefatos .cbl (modulos e o programa principal) e executar "PROGMENU.cbl"
 
-Passo a passo no arquivo "Manual de instrução" localizado na raiz do projeto.
+Passo a passo no arquivo "Instruções de uso" localizado na raiz do projeto.
 
 
