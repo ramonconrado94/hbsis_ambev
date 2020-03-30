@@ -2,7 +2,7 @@
  Aplicação para gerenciar a carteira de clientes para os vendedores
  
  
- Instruções de uso
+## Instruções de uso
 
 Download da IDE Open Cobol através do link https://launchpad.net/cobcide/+download
 
