@@ -47,19 +47,21 @@
               10 WS-COD-VEND-RELAT     PIC 9(003)          VALUE ZEROS.
               10 WS-NOME-RAZAO-RELAT   PIC X(040)          VALUE ZEROS.
 
-       01 WS-AUXILIARES.
-              05 WS-TIPO-OPER          PIC X(020)          VALUE SPACES.
-
+       77  WS-CRUDCLIE                 PIC  X(008)         VALUE
+                                                           'CRUDCLIE'.
+       77  WS-CRUDVEND                 PIC  X(008)         VALUE
+                                                           'CRUDVEND'.
+       77  WS-DISTRIBU                 PIC  X(008)         VALUE
+                                                           'DISTRIBU'.                                                    
        01  WS-LINK-CRUDCLIE.
            COPY 'BOOKCLIE.CPY'.
 
        01  WS-LINK-CRUDVEND.
            COPY 'BOOKVEND.CPY'.
 
-       77  WS-CRUDCLIE                 PIC  X(008)         VALUE
-                                                           'CRUDCLIE'.
-       77  WS-CRUDVEND                 PIC  X(008)         VALUE
-                                                           'CRUDVEND'.
+       01  WS-LINK-DISTRIBU.
+           COPY 'BOOKDSTR.CPY'.    
+
        SCREEN                          SECTION.
 
        01  TELA-MENU.
@@ -505,6 +507,8 @@
                PERFORM 2100-MENU-CADASTRO
              WHEN 2
                PERFORM 2400-MENU-RELATORIOS
+             WHEN 3
+               PERFORM 2500-EXECUTAR
              WHEN 4
                PERFORM 3000-FINALIZAR
              WHEN OTHER
@@ -854,6 +858,27 @@
 
            .
        2420-99-FIM.                    EXIT.
+
+       2500-EXECUTAR                   SECTION.
+
+           DISPLAY TELA-EXECUTAR
+           ACCEPT  TELA-EXECUTAR
+
+           IF WS-OPCAO                 EQUAL 1
+             CALL WS-DISTRIBU          USING WS-LINK-DISTRIBU
+             DISPLAY BOOKEXEC-CONTROLE-MSG
+                                       AT 2310
+             STOP ' '
+           ELSE IF WS-OPCAO            EQUAL 2
+             PERFORM 2000-PROCESSAR
+           ELSE
+             DISPLAY "VALOR INVALIDO"  AT 2310
+             STOP ' '
+             PERFORM 2300-EXECUTAR
+           END-IF
+
+           .
+       2500-99-FIM.                    EXIT.
 
 
        3000-FINALIZAR                  SECTION.
